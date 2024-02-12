@@ -26,7 +26,6 @@ function verificarChute() {
   let chute = document.querySelector("input").value
 
   if (chute.length < 1) {
-    console.log("asas")
     exibirTextoNaTela("p", "Digite um número!")
     return;
   }
