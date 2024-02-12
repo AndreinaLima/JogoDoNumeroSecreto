@@ -3,6 +3,12 @@ let numeroLimite = 5000
 let numeroSecreto = gerarNumeroAleatorio()
 let tentativas = 1
 
+document.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    verificarChute()
+  }
+})
+
 function exibirTextoNaTela(tag, texto) {
   let campo = document.querySelector(tag)
   campo.innerHTML = texto
@@ -19,6 +25,11 @@ exibirMensagemInicial()
 function verificarChute() {
   let chute = document.querySelector("input").value
 
+  if (chute.length < 1) {
+    console.log("asas")
+    exibirTextoNaTela("p", "Digite um número!")
+    return;
+  }
   if (chute == numeroSecreto) {
     exibirTextoNaTela("h1", "Acertou!")
     let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa"
